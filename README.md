@@ -46,8 +46,10 @@ pip3 uninstall wilhelm_python_sdk
 pip3 install --upgrade --force-reinstall wilhelm-python-sdk
 ```
 
+### Extract From Raw Data
+
 ```console
-python3 load_german.py
+python3 extract.py -i path/to/raw-wiktextract-data.jsonl -o path/to/output.json
 ```
 
 > [!WARNING]
