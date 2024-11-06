@@ -46,15 +46,24 @@ pip3 uninstall wilhelm_python_sdk
 pip3 install --upgrade --force-reinstall wilhelm-python-sdk
 ```
 
-### Extract From Raw Data
+### Load Basic Data
+
+```console
+python3 load-basic.py -i path/to/raw-wiktextract-data.jsonl
+```
+
+> [!WARNING]
+> 
+> The loading takes several hours, please be patient
+
+
+### Infer More Links
 
 ```console
 python3 extract.py -i path/to/raw-wiktextract-data.jsonl -o path/to/output.json
 ```
 
-> [!WARNING]
-> 
-> The loading takes a long time, please be patient
+...more TBA
 
 License
 -------
