@@ -35,11 +35,13 @@ if __name__ == "__main__":
             vocabulary = json.loads(line)
             #logging.info(f"Loading vocabulary: {vocabulary}")
             if "lang" in vocabulary and vocabulary["lang"] == "German":
+                if ("glosses" not in vocabulary["senses"]) and ("raw_glosses" not in vocabulary["senses"]):
+                    continue
+
                 term = vocabulary["word"]
                 # database_client.save_a_node_with_attributes("Term", {label_key: term, "language": GERMAN})
 
-                definitions = [sense["glosses"][0] if "glosses" in sense else sense["raw_glosses"][0] for sense in
-                               vocabulary["senses"]]
+                definitions = [sense["glosses"][0] if "glosses" in sense else sense["raw_glosses"][0] for sense in vocabulary["senses"]]
                 # for definition in definitions:
                 #     database_client.save_a_node_with_attributes("Definition", {label_key: definition})
 
