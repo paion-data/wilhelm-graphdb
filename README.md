@@ -9,21 +9,21 @@ efforts that
 [scales project Wilhelm](https://github.com/QubitPi/wilhelm?tab=readme-ov-file#why-do-i-decide-to-scale-project-wilhelm)
 
 > [!NOTE]
-> 
+>
 > wilhelm-graphdb is under active development and will start serving alone with
 > [paion-data/aristotle](https://aristotle-ws.com/)
 
 Development
 -----------
 
-#### Updating the Datasource
+### Updating the Datasource
 
 We use Wiktionary (English) as the vocabulary source. Thanks to the awesome works by
 [tatuylonen](https://github.com/tatuylonen/wiktextract), the source data is already
 [in JSON format](https://kaikki.org/dictionary/rawdata.html). The source data is going to be updated regularly so to get
 the latest data, simply download the __raw Wiktextract data (JSONL, one object per line)__
 
-#### Start a Local Neo4J Database
+### Start a Local Neo4J Database
 
 ```console
 docker run \
@@ -33,7 +33,7 @@ docker run \
     --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes neo4j:5.24-enterprise
 ```
 
-To manually 
+To manually
 
 ```console
 python3 -m virtualenv .venv
@@ -53,7 +53,7 @@ python3 load-basic.py -i path/to/raw-wiktextract-data.jsonl
 ```
 
 > [!WARNING]
-> 
+>
 > The loading takes several hours, please be patient
 
 
