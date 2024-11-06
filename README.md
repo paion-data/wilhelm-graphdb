@@ -4,7 +4,7 @@ Wilhelm Graph Database
 [![Neo4J DB version badge]][Neo4J Docker version]
 [![Apache License Badge]][Apache License, Version 2.0]
 
-__wilhelm-graphdb__ is a Docker image that hosts Wiktionary languge data in Neo4J graph database. It is part of the
+__wilhelm-graphdb__ is a Docker image that hosts Wiktionary language data in Neo4J graph database. It is part of the
 efforts that
 [scales project Wilhelm](https://github.com/QubitPi/wilhelm?tab=readme-ov-file#why-do-i-decide-to-scale-project-wilhelm)
 
