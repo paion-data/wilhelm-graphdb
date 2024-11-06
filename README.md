@@ -56,7 +56,6 @@ python3 load-basic.py -i path/to/raw-wiktextract-data.jsonl
 >
 > The loading takes several hours, please be patient
 
-
 ### Infer More Links
 
 ```console
