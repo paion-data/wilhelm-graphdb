@@ -41,17 +41,18 @@ Creating the following environment variables:
 > [!CAUTION]
 >
 > The script would overwrite the following environment variables with the specified values if already defined locally:
-> 
+>
 > __NEO4J_URI__: `neo4j://localhost:7687`
 > __NEO4J_USERNAME__: `neo4j`
-> 
+>
 > The loading takes several hours, please be patient
 
 ```console
 ./docker.sh
 ```
 
-The log can be found at `./load.log`
+- The loading log can be found at `./load.log`
+- The database UI can now be accessed at http://localhost:7474 which shows how much data has been loaded
 
 ### Troubleshooting
 

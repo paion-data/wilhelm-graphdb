@@ -22,11 +22,6 @@ name: CI/CD
 
 env:
   PYTHON_VERSION: "3.10"
-  NEO4J_ENTERPRISE_VERSION: 5.24-enterprise
-  NEO4J_URI: neo4j://localhost:7687
-  NEO4J_DATABASE: neo4j
-  NEO4J_USERNAME: not used
-  NEO4J_PASSWORD: not used
 
 jobs:
   cancel-previous:
@@ -63,81 +58,26 @@ jobs:
         with:
           fail: true
 
-#  docker:
-#    name: Test Docker build and publish image to DockerHub
-#    needs: [yaml-lint, markdown-lint, linkChecker]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#        with:
-#          fetch-depth: 0
-#      - name: Set up Python ${{ env.PYTHON_VERSION }}
-#        uses: actions/setup-python@v4
-#        with:
-#          python-version: ${{ env.PYTHON_VERSION }}
-#      - name: Startup a Neo4J database
-#        run: |
-#          docker run \
-#              --publish=7474:7474 \
-#              --publish=7687:7687 \
-#              --env=NEO4J_AUTH=none \
-#              --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes \
-#              --name data-loader \
-#              neo4j:${{ env.NEO4J_ENTERPRISE_VERSION }} &
-#      - name: Download raw wiktionary data
-#        run: wget https://kaikki.org/dictionary/raw-wiktextract-data.jsonl
-#      - name: Wait for database to be ready
-#        uses: iFaxity/wait-on-action@v1
-#        with:
-#          resource: http://localhost:7474
-#      - name: Load all languages into the intermediate container
-#        run: |
-#          pip3 install --upgrade --force-reinstall wilhelm-python-sdk
-#          python3 load-basic.py -i raw-wiktextract-data.jsonl
-#        env:
-#          NEO4J_URI: ${{ env.NEO4J_URI }}
-#          NEO4J_DATABASE: ${{ env.NEO4J_DATABASE }}
-#          NEO4J_USERNAME: ${{ env.NEO4J_USERNAME }}
-#          NEO4J_PASSWORD: ${{ env.NEO4J_PASSWORD }}
-#      - name: Copy over data onto host
-#        run: docker cp data-loader:/data .
-#      - name: Test image build
-#        uses: docker/build-push-action@v3
-#        with:
-#          context: .
-#          push: false
-#      - name: Login to DockerHub
-#        if: github.ref == 'refs/heads/master'
-#        uses: docker/login-action@v2
-#        with:
-#          username: jack20191124
-#          password: ${{ secrets.DOCKERHUB_TOKEN }}
-#      - name: Push image to DockerHub
-#        if: github.ref == 'refs/heads/master'
-#        uses: docker/build-push-action@v3
-#        with:
-#          context: .
-#          push: true
-#          tags: jack20191124/wilhelm-vocabulary:latest
-#      - name: Push image Description
-#        if: github.ref == 'refs/heads/master'
-#        uses: peter-evans/dockerhub-description@v4
-#        with:
-#          username: jack20191124
-#          password: ${{ secrets.DOCKERHUB_TOKEN }}
-#          repository: jack20191124/wilhelm-vocabulary
-#          readme-filepath: README.md
-
-#  sync-to-huggingface-space:
-#    if: github.ref == 'refs/heads/master'
-#    needs: tests
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#        with:
-#          fetch-depth: 0
-#          lfs: true
-#      - name: Push to hub
-#        run: git push https://QubitPi:$HF_TOKEN@huggingface.co/datasets/QubitPi/wilhelm-vocabulary master:main -f
-#        env:
-#          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+  sync-to-huggingface-space:
+    if: github.ref == 'refs/heads/master'
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Download raw wiktionary data
+        run: wget https://kaikki.org/dictionary/raw-wiktextract-data.jsonl
+      - name: Process aw-wiktextract-data.jsonl
+        run: python3 ./extract.py -i raw-wiktextract-data.jsonl
+      - name: Push to hub
+        run: |
+          rm raw-wiktextract-data.jsonl
+          git push https://QubitPi:$HF_TOKEN@huggingface.co/datasets/QubitPi/wilhelm-graphdb master:main -f
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}

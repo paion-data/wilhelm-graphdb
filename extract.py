@@ -20,9 +20,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description='Generate JSON data')
+    parser = argparse.ArgumentParser(description='Generate Hugging Face Dataset')
     parser.add_argument('-i', '--input', help='Raw data file, i.e. the path to raw-wiktextract-data.jsonl', required=True)
-    parser.add_argument('-o', '--output', help='Path to the output JSON. Default to current directory', required=False)
+    parser.add_argument('-o', '--output', help='Path to the output JSON. Default to "wiktextract-data.json" in current directory', required=False)
     args = vars(parser.parse_args())
 
     with get_database_client() as database_client, open(args["input"]) as data, open(args["output"] if args["output"] else "wiktextract-data.json", "w") as output:
