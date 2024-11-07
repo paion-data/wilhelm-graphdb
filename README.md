@@ -3,6 +3,9 @@ Wilhelm GraphDB - Visualizing Wiktionary in Graph Database
 
 ![Python Version Badge]
 [![Neo4J DB version badge]][Neo4J Docker version]
+[![GitHub workflow status badge][GitHub workflow status badge]][GitHub workflow status URL]
+[![Hugging Face sync status badge]][Hugging Face sync status URL]
+[![Hugging Face dataset badge]][Hugging Face dataset URL]
 [![Apache License Badge]][Apache License, Version 2.0]
 
 __wilhelm-graphdb__ is a Docker image that hosts Wiktionary language data in Neo4J graph database. It is part of the
@@ -66,21 +69,21 @@ pip3 install --upgrade --force-reinstall wilhelm-python-sdk
 License
 -------
 
-The use and distribution terms for [wilhelm-vocabulary]() are covered by the [Apache License, Version 2.0].
+The use and distribution terms for [wilhelm-graphdb]() are covered by the [Apache License, Version 2.0].
 
 [Apache License Badge]: https://img.shields.io/badge/Apache%202.0-F25910.svg?style=for-the-badge&logo=Apache&logoColor=white
 [Apache License, Version 2.0]: https://www.apache.org/licenses/LICENSE-2.0
 
 [Docker login command]: https://docker.qubitpi.org/reference/cli/docker/login/#options
 
-[GitHub workflow status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm-vocabulary/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=Database%20Loading
-[GitHub workflow status URL]: https://github.com/QubitPi/wilhelm-vocabulary/actions/workflows/ci-cd.yaml
+[GitHub workflow status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm-graphdb/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=Database%20Loading
+[GitHub workflow status URL]: https://github.com/QubitPi/wilhelm-graphdb/actions/workflows/ci-cd.yaml
 
 [Hugging Face dataset badge]: https://img.shields.io/badge/Hugging%20Face%20Dataset-wilhelm--vocabulary-FFD21E?style=for-the-badge&logo=huggingface&logoColor=white
-[Hugging Face dataset URL]: https://huggingface.co/datasets/QubitPi/wilhelm-vocabulary
+[Hugging Face dataset URL]: https://huggingface.co/datasets/QubitPi/wilhelm-graphdb
 
-[Hugging Face sync status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm-vocabulary/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=Hugging%20Face%20Sync%20Up
-[Hugging Face sync status URL]: https://github.com/QubitPi/wilhelm-vocabulary/actions/workflows/ci-cd.yaml
+[Hugging Face sync status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm-graphdb/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=Hugging%20Face%20Sync%20Up
+[Hugging Face sync status URL]: https://github.com/QubitPi/wilhelm-graphdb/actions/workflows/ci-cd.yaml
 
 [Neo4J DB version badge]: https://img.shields.io/badge/Neo4J-5.24--enterprise-4581C3.svg?style=for-the-badge&logo=neo4j&logoColor=white
 [Neo4J Docker version]: https://hub.docker.com/_/neo4j/tags?name=5.24-enterprise

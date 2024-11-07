@@ -13,7 +13,6 @@
 # limitations under the License.
 import logging
 import json
-from wilhelm_python_sdk.database_clients import get_database_client
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -25,7 +24,7 @@ if __name__ == "__main__":
     parser.add_argument('-o', '--output', help='Path to the output JSON. Default to "wiktextract-data.json" in current directory', required=False)
     args = vars(parser.parse_args())
 
-    with get_database_client() as database_client, open(args["input"]) as data, open(args["output"] if args["output"] else "wiktextract-data.json", "w") as output:
+    with open(args["input"]) as data, open(args["output"] if args["output"] else "wiktextract-data.json", "w") as output:
         output.write("[\n")
 
         for line in data:
