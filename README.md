@@ -74,7 +74,7 @@ The use and distribution terms for [wilhelm-graphdb]() are covered by the [Apach
 [Apache License Badge]: https://img.shields.io/badge/Apache%202.0-F25910.svg?style=for-the-badge&logo=Apache&logoColor=white
 [Apache License, Version 2.0]: https://www.apache.org/licenses/LICENSE-2.0
 
-[Docker login command]: https://docker.qubitpi.org/reference/cli/docker/login/#options
+[Docker login command]: https://docs.docker.com/reference/cli/docker/login/#options
 
 [GitHub workflow status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm-graphdb/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=Database%20Loading
 [GitHub workflow status URL]: https://github.com/QubitPi/wilhelm-graphdb/actions/workflows/ci-cd.yaml
