@@ -1,19 +1,12 @@
 ---
 license: apache-2.0
-pretty_name: Wiktionary German Vocabulary in JSON
+pretty_name: Wiktionary in JSON
 language:
   - en
-dataset_info:
-  config_name: JSON
-  features:
-    - name: term
-      dtype: string
-    - name: definition
-      list: string
 configs:
-  - config_name: JSON
+  - config_name: languages
     data_files:
-      - split: data
+      - split: German
         path: wiktextract-data.json
 ---
 
@@ -32,6 +25,17 @@ efforts that
 [scales project Wilhelm](https://github.com/QubitPi/wilhelm?tab=readme-ov-file#why-do-i-decide-to-scale-project-wilhelm)
 
 Currently, only __German__ language is loaded into the image.
+
+🤗 Hugging Face Datasets
+------------------------
+
+If a graph database is not exactly what one need the data to be stored, the Wiktionary language data is also available
+on 🤗 [Hugging Face Datasets][Hugging Face dataset URL].
+
+```python
+from datasets import load_dataset
+dataset = load_dataset("QubitPi/wilhelm-graphdb", split="German")
+```
 
 Development
 -----------
