@@ -78,6 +78,7 @@ jobs:
       - name: Push to hub
         run: |
           git lfs install
+          git lfs track "wiktextract-data.json"
           git config --global user.name "QubitPi"
           git config --global user.email "jack20220723@gmail.com"
           git add wiktextract-data.json
