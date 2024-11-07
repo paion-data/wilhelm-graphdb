@@ -77,7 +77,10 @@ jobs:
         run: python3 ./extract.py -i raw-wiktextract-data.jsonl
       - name: Push to hub
         run: |
-          rm raw-wiktextract-data.jsonl
+          git config --global user.name "QubitPi"
+          git config --global user.email "jack20220723@gmail.com"
+          git add raw-wiktextract-data.json
+          git commit -m "Extract raw-wiktextract-data.jsonl into raw-wiktextract-data.json"
           git push https://QubitPi:$HF_TOKEN@huggingface.co/datasets/QubitPi/wilhelm-graphdb master:main -f
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}

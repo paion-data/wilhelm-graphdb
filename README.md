@@ -45,8 +45,8 @@ Creating the following environment variables:
 >
 > The script would overwrite the following environment variables with the specified values if already defined locally:
 >
-> __NEO4J_URI__: `neo4j://localhost:7687`
-> __NEO4J_USERNAME__: `neo4j`
+> - __NEO4J_URI__: `neo4j://localhost:7687`
+> - __NEO4J_USERNAME__: `neo4j`
 >
 > The loading takes several hours, please be patient
 
@@ -79,7 +79,7 @@ The use and distribution terms for [wilhelm-graphdb]() are covered by the [Apach
 [GitHub workflow status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm-graphdb/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=Database%20Loading
 [GitHub workflow status URL]: https://github.com/QubitPi/wilhelm-graphdb/actions/workflows/ci-cd.yaml
 
-[Hugging Face dataset badge]: https://img.shields.io/badge/Hugging%20Face%20Dataset-wilhelm--vocabulary-FFD21E?style=for-the-badge&logo=huggingface&logoColor=white
+[Hugging Face dataset badge]: https://img.shields.io/badge/Hugging%20Face%20Dataset-wilhelm--graphdb-FFD21E?style=for-the-badge&logo=huggingface&logoColor=white
 [Hugging Face dataset URL]: https://huggingface.co/datasets/QubitPi/wilhelm-graphdb
 
 [Hugging Face sync status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm-graphdb/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=Hugging%20Face%20Sync%20Up
