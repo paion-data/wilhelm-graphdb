@@ -21,12 +21,10 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Generate Hugging Face Dataset')
     parser.add_argument('-i', '--input', help='Raw data file, i.e. the path to raw-wiktextract-data.jsonl', required=True)
-    parser.add_argument('-o', '--output', help='Path to the output JSON. Default to "wiktextract-data.json" in current directory', required=False)
+    parser.add_argument('-o', '--output', help='Path to the output JSON. Default to "wiktextract-data.jsonl" in current directory', required=False)
     args = vars(parser.parse_args())
 
-    with open(args["input"]) as data, open(args["output"] if args["output"] else "wiktextract-data.json", "w") as output:
-        output.write("[\n")
-
+    with open(args["input"]) as data, open(args["output"] if args["output"] else "wiktextract-data.jsonl", "w") as output:
         for line in data:
             vocabulary = json.loads(line)
             if "lang" in vocabulary and vocabulary["lang"] == "German":
@@ -34,5 +32,4 @@ if __name__ == "__main__":
                 definitions = [sense["glosses"][0] if "glosses" in sense else sense["raw_glosses"][0] if "raw_glosses" in sense else [] for sense in vocabulary["senses"]]
                 for definition in definitions:
                     output.write(json.dumps({"term": term, "definition": definition}))
-                    output.write(",\n")
-        output.write("]\n")
+                    output.write("\n")

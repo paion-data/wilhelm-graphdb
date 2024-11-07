@@ -7,7 +7,7 @@ configs:
   - config_name: languages
     data_files:
       - split: German
-        path: wiktextract-data.json
+        path: wiktextract-data.jsonl
 ---
 
 Wilhelm GraphDB - Visualizing Wiktionary in Graph Database
