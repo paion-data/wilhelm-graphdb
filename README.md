@@ -73,6 +73,15 @@ The use and distribution terms for [wilhelm-vocabulary]() are covered by the [Ap
 
 [Docker login command]: https://docker.qubitpi.org/reference/cli/docker/login/#options
 
+[GitHub workflow status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm-vocabulary/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=Database%20Loading
+[GitHub workflow status URL]: https://github.com/QubitPi/wilhelm-vocabulary/actions/workflows/ci-cd.yaml
+
+[Hugging Face dataset badge]: https://img.shields.io/badge/Hugging%20Face%20Dataset-wilhelm--vocabulary-FFD21E?style=for-the-badge&logo=huggingface&logoColor=white
+[Hugging Face dataset URL]: https://huggingface.co/datasets/QubitPi/wilhelm-vocabulary
+
+[Hugging Face sync status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm-vocabulary/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=Hugging%20Face%20Sync%20Up
+[Hugging Face sync status URL]: https://github.com/QubitPi/wilhelm-vocabulary/actions/workflows/ci-cd.yaml
+
 [Neo4J DB version badge]: https://img.shields.io/badge/Neo4J-5.24--enterprise-4581C3.svg?style=for-the-badge&logo=neo4j&logoColor=white
 [Neo4J Docker version]: https://hub.docker.com/_/neo4j/tags?name=5.24-enterprise
 
