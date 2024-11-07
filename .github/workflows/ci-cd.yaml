@@ -79,7 +79,7 @@ jobs:
         run: |
           git config --global user.name "QubitPi"
           git config --global user.email "jack20220723@gmail.com"
-          git add raw-wiktextract-data.json
+          git add wiktextract-data.json
           git commit -m "Extract raw-wiktextract-data.jsonl into raw-wiktextract-data.json"
           git push https://QubitPi:$HF_TOKEN@huggingface.co/datasets/QubitPi/wilhelm-graphdb master:main -f
         env:
