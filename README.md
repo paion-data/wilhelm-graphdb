@@ -1,3 +1,22 @@
+---
+license: apache-2.0
+pretty_name: Wiktionary German Vocabulary in JSON
+language:
+  - en
+dataset_info:
+  config_name: JSON
+  features:
+    - name: term
+      dtype: string
+    - name: definition
+      list: string
+configs:
+  - config_name: JSON
+    data_files:
+      - split: data
+        path: wiktextract-data.json
+---
+
 Wilhelm GraphDB - Visualizing Wiktionary in Graph Database
 ==========================================================
 
