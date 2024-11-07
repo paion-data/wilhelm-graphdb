@@ -77,6 +77,7 @@ jobs:
         run: python3 ./extract.py -i raw-wiktextract-data.jsonl
       - name: Push to hub
         run: |
+          git lfs install
           git config --global user.name "QubitPi"
           git config --global user.email "jack20220723@gmail.com"
           git add wiktextract-data.json
