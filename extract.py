@@ -36,7 +36,7 @@ if __name__ == "__main__":
                 term = vocabulary["word"]
                 definitions = [sense["glosses"][0] if "glosses" in sense else sense["raw_glosses"][0] if "raw_glosses" in sense else EMPTY_DEFINITION for sense in vocabulary["senses"]]
                 for definition in definitions:
-                    if definitions is not EMPTY_DEFINITION:
+                    if definition is not EMPTY_DEFINITION:
                         if vocabulary["lang"] == "German":
                             german.write(json.dumps({"term": term, "definition": definition}))
                             german.write("\n")
