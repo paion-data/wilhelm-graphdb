@@ -16,6 +16,8 @@ import json
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+EMPTY_DEFINITION = ""
+
 if __name__ == "__main__":
     import argparse
 
@@ -29,8 +31,8 @@ if __name__ == "__main__":
             vocabulary = json.loads(line)
             if "lang" in vocabulary and vocabulary["lang"] == "German":
                 term = vocabulary["word"]
-                definitions = [sense["glosses"][0] if "glosses" in sense else sense["raw_glosses"][0] if "raw_glosses" in sense else [] for sense in vocabulary["senses"]]
+                definitions = [sense["glosses"][0] if "glosses" in sense else sense["raw_glosses"][0] if "raw_glosses" in sense else EMPTY_DEFINITION for sense in vocabulary["senses"]]
                 for definition in definitions:
-                    if definitions is not []:
+                    if definitions is not EMPTY_DEFINITION:
                         output.write(json.dumps({"term": term, "definition": definition}))
                         output.write("\n")
