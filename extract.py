@@ -23,16 +23,22 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Generate Hugging Face Dataset')
     parser.add_argument('-i', '--input', help='Raw data file, i.e. the path to raw-wiktextract-data.jsonl', required=True)
-    parser.add_argument('-o', '--output', help='Path to the output JSON. Default to "wiktextract-data.jsonl" in current directory', required=False)
     args = vars(parser.parse_args())
 
-    with open(args["input"]) as data, open(args["output"] if args["output"] else "wiktextract-data.jsonl", "w") as output:
+    with open(args["input"]) as data, open("german-wiktextract-data.jsonl", "w") as german, open("latin-wiktextract-data.jsonl", "w") as latin, open("ancient-greek-wiktextract-data.jsonl", "w") as ancient_greek:
         for line in data:
             vocabulary = json.loads(line)
-            if "lang" in vocabulary and vocabulary["lang"] == "German":
+            if "lang" in vocabulary:
                 term = vocabulary["word"]
                 definitions = [sense["glosses"][0] if "glosses" in sense else sense["raw_glosses"][0] if "raw_glosses" in sense else EMPTY_DEFINITION for sense in vocabulary["senses"]]
                 for definition in definitions:
                     if definitions is not EMPTY_DEFINITION:
-                        output.write(json.dumps({"term": term, "definition": definition}))
-                        output.write("\n")
+                        if vocabulary["lang"] == "German":
+                            german.write(json.dumps({"term": term, "definition": definition}))
+                            german.write("\n")
+                        if vocabulary["lang"] == "Latin":
+                            latin.write(json.dumps({"term": term, "definition": definition}))
+                            latin.write("\n")
+                        if vocabulary["lang"] == "Ancient Greek":
+                            ancient_greek.write(json.dumps({"term": term, "definition": definition}))
+                            ancient_greek.write("\n")

@@ -66,16 +66,21 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
       - name: Download raw wiktionary data
         run: wget https://kaikki.org/dictionary/raw-wiktextract-data.jsonl
-      - name: Process aw-wiktextract-data.jsonl
+      - name: Process raw-wiktextract-data.jsonl
         run: python3 ./extract.py -i raw-wiktextract-data.jsonl
       - name: Push to hub
         run: |
           git lfs install
-          git lfs track "wiktextract-data.jsonl"
+          git lfs track "german-wiktextract-data.jsonl"
+          git lfs track "latin-wiktextract-data.jsonl"
+          git lfs track "ancient-greek-wiktextract-data.jsonl"
+          
           git config --global user.name "QubitPi"
           git config --global user.email "jack20220723@gmail.com"
-          git add wiktextract-data.jsonl
-          git commit -m "Extract raw-wiktextract-data.jsonl into raw-wiktextract-data.json"
+          
+          git add german-wiktextract-data.jsonl latin-wiktextract-data.jsonl ancient-greek-wiktextract-data.jsonl
+          
+          git commit -m "Extract raw-wiktextract-data.jsonl into per-language wiktextract-data.jsonl"
           git push https://QubitPi:$HF_TOKEN@huggingface.co/datasets/QubitPi/wilhelm-graphdb master:main -f
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
