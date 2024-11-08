@@ -25,7 +25,11 @@ if __name__ == "__main__":
     parser.add_argument('-i', '--input', help='Raw data file, i.e. the path to raw-wiktextract-data.jsonl', required=True)
     args = vars(parser.parse_args())
 
-    with open(args["input"]) as data, open("german-wiktextract-data.jsonl", "w") as german, open("latin-wiktextract-data.jsonl", "w") as latin, open("ancient-greek-wiktextract-data.jsonl", "w") as ancient_greek:
+    with (open(args["input"]) as data,
+          open("german-wiktextract-data.jsonl", "w") as german,
+          open("latin-wiktextract-data.jsonl", "w") as latin,
+          open("ancient-greek-wiktextract-data.jsonl", "w") as ancient_greek
+    ):
         for line in data:
             vocabulary = json.loads(line)
             if "lang" in vocabulary:

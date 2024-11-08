@@ -74,12 +74,12 @@ jobs:
           git lfs track "german-wiktextract-data.jsonl"
           git lfs track "latin-wiktextract-data.jsonl"
           git lfs track "ancient-greek-wiktextract-data.jsonl"
-          
+
           git config --global user.name "QubitPi"
           git config --global user.email "jack20220723@gmail.com"
-          
+
           git add german-wiktextract-data.jsonl latin-wiktextract-data.jsonl ancient-greek-wiktextract-data.jsonl
-          
+
           git commit -m "Extract raw-wiktextract-data.jsonl into per-language wiktextract-data.jsonl"
           git push https://QubitPi:$HF_TOKEN@huggingface.co/datasets/QubitPi/wilhelm-graphdb master:main -f
         env:

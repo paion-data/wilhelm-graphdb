@@ -1,9 +1,11 @@
 ---
 license: apache-2.0
-pretty_name: Wiktionary in JSON
+pretty_name: English Wiktionary in JSONL
 language:
   - en
   - de
+  - grc
+  - la
 configs:
   - config_name: languages
     data_files:
@@ -16,6 +18,8 @@ configs:
 tags:
 - Wiktionary
 - German
+- Ancient Greek
+- Latin
 - Vocabulary
 size_categories:
 - 100K<n<1M
