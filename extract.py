@@ -31,6 +31,6 @@ if __name__ == "__main__":
                 term = vocabulary["word"]
                 definitions = [sense["glosses"][0] if "glosses" in sense else sense["raw_glosses"][0] if "raw_glosses" in sense else [] for sense in vocabulary["senses"]]
                 for definition in definitions:
-                    if isinstance(definitions, str):
+                    if definitions is not []:
                         output.write(json.dumps({"term": term, "definition": definition}))
                         output.write("\n")
