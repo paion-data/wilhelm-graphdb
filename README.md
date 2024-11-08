@@ -39,7 +39,11 @@ __wilhelm-graphdb__ is a Docker image that hosts Wiktionary language data in Neo
 efforts that
 [scales project Wilhelm](https://github.com/QubitPi/wilhelm?tab=readme-ov-file#why-do-i-decide-to-scale-project-wilhelm)
 
-Currently, only __German__ language is loaded into the image.
+Currently, the following languages are loaded into the container database:
+
+1. German
+2. Latin
+3. Ancient Greek
 
 🤗 Hugging Face Datasets
 ------------------------
@@ -51,6 +55,12 @@ on 🤗 [Hugging Face Datasets][Hugging Face dataset URL].
 from datasets import load_dataset
 dataset = load_dataset("QubitPi/wilhelm-graphdb", split="German")
 ```
+
+The available splits are
+
+- `German`
+- `Latin`
+- 'AncientGreek'
 
 Development
 -----------
