@@ -7,14 +7,14 @@ language:
   - grc
   - la
 configs:
-  - config_name: languages
-    data_files:
-      - split: German
-        path: german-wiktextract-data.jsonl
-      - split: Latin
-        path: latin-wiktextract-data.jsonl
-      - split: Ancient Greek
-        path: ancient-greek-wiktextract-data.jsonl
+- config_name: Languages
+  data_files:
+  - split: German
+    path: german-wiktextract-data.jsonl
+  - split: Latin
+    path: latin-wiktextract-data.jsonl
+  - split: AncientGreek
+    path: ancient-greek-wiktextract-data.jsonl
 tags:
 - Wiktionary
 - German
